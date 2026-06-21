@@ -1,0 +1,2760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30-Day Business Mastery Roadmap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0b0f19;
+            --bg-secondary: #151b2c;
+            --bg-tertiary: #1e2640;
+            --accent-primary: #2563eb;
+            --accent-secondary: #3b82f6;
+            --accent-success: #10b981;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border-color: #2e3a59;
+            --card-glow: rgba(37, 99, 235, 0.1);
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'Space Grotesk', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f1f5f9;
+            --accent-primary: #1d4ed8;
+            --accent-secondary: #2563eb;
+            --accent-success: #059669;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --border-color: #cbd5e1;
+            --card-glow: rgba(37, 99, 235, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-primary);
+        }
+
+        /* Typography Helper Definitions */
+        h1, h2, h3, h4 {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Layout Layout Components - Mobile First */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        /* Navbar Architecture - Mobile First Focus */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        @supports (backdrop-filter: blur(12px)) {
+            .navbar {
+                background: rgba(var(--bg-primary), 0.8);
+                backdrop-filter: blur(12px);
+            }
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4.5rem;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 1001;
+        }
+
+        /* Mobile Menu Navigation Overlay */
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 4.5rem;
+            left: 0;
+            width: 100%;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 2rem 1.25rem;
+            gap: 1.5rem;
+            transform: translateY(-150%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 999;
+        }
+
+        .nav-links.mobile-open {
+            transform: translateY(0);
+        }
+
+        .nav-link {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            position: relative;
+            transition: var(--transition);
+            width: max-content;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-primary);
+        }
+
+        @media (min-width: 1024px) {
+            .nav-links {
+                position: static;
+                flex-direction: row;
+                border: none;
+                padding: 0;
+                gap: 2rem;
+                transform: none;
+                width: auto;
+                background: transparent;
+            }
+
+            .nav-link {
+                font-size: 0.9rem;
+            }
+
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: var(--accent-primary);
+                transition: var(--transition);
+            }
+
+            .nav-link:hover::after, .nav-link.active::after {
+                width: 100%;
+            }
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            z-index: 1001;
+        }
+
+        @media (min-width: 375px) {
+            .nav-actions {
+                gap: 1rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .nav-actions {
+                gap: 1.5rem;
+            }
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            transition: var(--transition);
+            padding: 0.25rem;
+        }
+
+        .theme-toggle:hover {
+            color: var(--text-primary);
+            transform: scale(1.1);
+        }
+
+        /* Hamburger Toggle Button */
+        .mobile-menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 0.5rem 0.25rem;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        .mobile-menu-toggle.open span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .mobile-menu-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.open span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-menu-toggle {
+                display: none;
+            }
+        }
+
+        /* Progress Module */
+        .nav-progress {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-tertiary);
+            padding: 0.4rem 0.75rem;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+        }
+
+        @media (min-width: 768px) {
+            .nav-progress {
+                gap: 0.75rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        .progress-bar-container {
+            width: 45px;
+            height: 6px;
+            background: var(--border-color);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        @media (min-width: 375px) {
+            .progress-bar-container {
+                width: 60px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .progress-bar-container {
+                width: 80px;
+            }
+        }
+
+        .progress-bar-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-success));
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .progress-text {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        @media (min-width: 768px) {
+            .progress-text {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Hero Viewport - Mobile First Scaling */
+        .hero {
+            padding: 7rem 0 4rem;
+            position: relative;
+            background: radial-gradient(circle at 50% 20%, var(--card-glow), transparent 50%);
+        }
+
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 9rem 0 6rem;
+                background: radial-gradient(circle at 80% 20%, var(--card-glow), transparent 40%);
+            }
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1.2fr 0.8fr;
+                gap: 4rem;
+            }
+        }
+
+        .hero-tagline {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent-secondary);
+            background: var(--card-glow);
+            padding: 0.35rem 0.65rem;
+            border-radius: 4px;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        @media (min-width: 768px) {
+            .hero-tagline {
+                font-size: 0.85rem;
+                letter-spacing: 0.15em;
+                padding: 0.35rem 0.75rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+                line-height: 1.15;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 3.5rem;
+                line-height: 1.1;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        @media (min-width: 768px) {
+            .hero p {
+                font-size: 1.15rem;
+                margin-bottom: 2.5rem;
+            }
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        @media (min-width: 480px) {
+            .hero-stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero-stats {
+                gap: 1.5rem;
+            }
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 1.25rem;
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+
+        @media (min-width: 768px) {
+            .stat-card {
+                padding: 1.5rem;
+            }
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 12px 24px -10px var(--card-glow);
+        }
+
+        .stat-val {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .stat-val {
+                font-size: 1.75rem;
+            }
+        }
+
+        .stat-lbl {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        @media (min-width: 768px) {
+            .stat-lbl {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Radial Tracker Card */
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-visual {
+                order: initial;
+            }
+        }
+
+        .radial-progress-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: center;
+            width: 100%;
+            max-width: 340px;
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .radial-progress-card {
+                padding: 3rem;
+            }
+        }
+
+        .svg-circle-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .svg-circle-container {
+                margin: 0 auto 2rem;
+            }
+        }
+
+        .svg-circle-container svg {
+            transform: rotate(-90deg);
+        }
+
+        .circle-bg {
+            fill: none;
+            stroke: var(--bg-tertiary);
+            stroke-width: 12;
+        }
+
+        .circle-progress {
+            fill: none;
+            stroke: var(--accent-primary);
+            stroke-width: 12;
+            stroke-linecap: round;
+            stroke-dasharray: 502;
+            stroke-dashoffset: 502;
+            transition: stroke-dashoffset 0.8s ease-in-out;
+        }
+
+        .circle-percentage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-mono);
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        /* Core Structure Filtering Hub */
+        .hub-section {
+            padding: 3rem 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hub-tabs {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+        }
+
+        @media (min-width: 480px) {
+            .hub-tabs {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hub-tabs {
+                grid-template-columns: repeat(4, 1fr);
+                margin-bottom: 0;
+            }
+        }
+
+        .hub-tab {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 1.25rem;
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: left;
+            transition: var(--transition);
+        }
+
+        @media (min-width: 768px) {
+            .hub-tab {
+                padding: 1.5rem;
+            }
+        }
+
+        .hub-tab:hover {
+            border-color: var(--accent-primary);
+            background: var(--bg-tertiary);
+        }
+
+        .hub-tab.active {
+            background: var(--accent-primary);
+            border-color: var(--accent-secondary);
+            color: #ffffff;
+        }
+
+        .hub-tab-num {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            opacity: 0.7;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .hub-tab-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        @media (min-width: 768px) {
+            .hub-tab-title {
+                font-size: 1.05rem;
+            }
+        }
+
+        .hub-tab.active .hub-tab-num,
+        .hub-tab.active .hub-tab-title {
+            color: #ffffff;
+            opacity: 1;
+        }
+
+        /* Curriculum Roadmap Layout Blueprint */
+        .roadmap-container {
+            padding: 4rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .roadmap-container {
+                padding: 6rem 0;
+            }
+        }
+
+        .week-wrapper {
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .week-wrapper.active-week {
+            display: block;
+        }
+
+        .week-header-block {
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--accent-primary);
+            padding-left: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .week-header-block {
+                margin-bottom: 3rem;
+                padding-left: 1.5rem;
+            }
+        }
+
+        .week-header-block h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .week-header-block h2 {
+                font-size: 2.25rem;
+            }
+        }
+
+        .week-header-block p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .week-header-block p {
+                font-size: 1.1rem;
+            }
+        }
+
+        .checkpoint-banner {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .checkpoint-banner {
+                padding: 1.5rem 2rem;
+                margin-bottom: 3rem;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1.5rem;
+            }
+        }
+
+        .checkpoint-info h4 {
+            font-size: 1.05rem;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .checkpoint-info h4 {
+                font-size: 1.1rem;
+            }
+        }
+
+        .checkpoint-grid {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .checkpoint-grid {
+                gap: 1rem;
+                width: auto;
+            }
+        }
+
+        .checkpoint-pill {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            padding: 0.35rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .checkpoint-pill {
+                padding: 0.35rem 0.85rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        .checkpoint-pill.verified {
+            border-color: var(--accent-success);
+            color: var(--accent-success);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        /* Day Structure Framework Card Matrix */
+        .day-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        @media (min-width: 768px) {
+            .day-card {
+                margin-bottom: 2rem;
+            }
+        }
+
+        .day-card:hover {
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);
+            border-color: var(--border-color);
+        }
+
+        .day-summary-row {
+            padding: 1.25rem;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .day-summary-row {
+                padding: 2rem;
+                grid-template-columns: auto 1fr auto auto;
+                gap: 2rem;
+            }
+        }
+
+        .day-badge {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 0.75rem;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 55px;
+        }
+
+        @media (min-width: 768px) {
+            .day-badge {
+                padding: 0.75rem 1.25rem;
+                min-width: 70px;
+            }
+        }
+
+        .day-badge span {
+            display: block;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1.2rem;
+            line-height: 1.1;
+        }
+
+        @media (min-width: 768px) {
+            .day-badge span {
+                font-size: 1.5rem;
+            }
+        }
+
+        .day-badge label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+
+        @media (min-width: 768px) {
+            .day-badge label {
+                font-size: 0.7rem;
+            }
+        }
+
+        .day-title-area h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .day-title-area h3 {
+                font-size: 1.35rem;
+            }
+        }
+
+        .theme-meta-pill {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        @media (min-width: 768px) {
+            .theme-meta-pill {
+                display: inline-block;
+                font-size: 0.85rem;
+            }
+        }
+
+        .day-metrics-pills {
+            display: flex;
+            gap: 0.5rem;
+            grid-column: span 3;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .day-metrics-pills {
+                display: flex;
+                gap: 1rem;
+                grid-column: auto;
+                width: auto;
+            }
+        }
+
+        .meta-pill {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 0.35rem 0.65rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            flex: 1;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .meta-pill {
+                padding: 0.4rem 0.85rem;
+                font-size: 0.8rem;
+                flex: none;
+                justify-content: flex-start;
+            }
+        }
+
+        .arrow-toggle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            transition: var(--transition);
+            grid-column: 3;
+            grid-row: 1;
+            justify-self: end;
+        }
+
+        @media (min-width: 768px) {
+            .arrow-toggle {
+                font-size: 1.25rem;
+                grid-column: auto;
+                grid-row: auto;
+                justify-self: auto;
+            }
+        }
+
+        .day-card.expanded .arrow-toggle {
+            transform: rotate(180deg);
+            color: var(--text-primary);
+        }
+
+        /* Card Expansion Body Details - Mobile First Stack */
+        .day-details-pane {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(0,0,0,0.1);
+            border-top: 0 solid var(--border-color);
+        }
+
+        .day-card.expanded .day-details-pane {
+            max-height: 3000px; /* Enhanced allowance for dense mobile stacking workflows */
+            border-top-width: 1px;
+        }
+
+        .pane-contents {
+            padding: 1.25rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .pane-contents {
+                padding: 2.5rem;
+                grid-template-columns: 1.2fr 0.8fr;
+                gap: 3rem;
+            }
+        }
+
+        /* Task Checkbox List Architecture */
+        .task-list-title {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-family: var(--font-mono);
+        }
+
+        @media (min-width: 768px) {
+            .task-list-title {
+                font-size: 1.1rem;
+                margin-bottom: 1.25rem;
+            }
+        }
+
+        .task-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        @media (min-width: 768px) {
+            .task-group {
+                gap: 1rem;
+            }
+        }
+
+        .task-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            background: var(--bg-primary);
+            padding: 0.85rem 1rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        @media (min-width: 768px) {
+            .task-item {
+                gap: 1rem;
+                padding: 1rem 1.25rem;
+            }
+        }
+
+        .task-item:hover {
+            border-color: var(--accent-secondary);
+            transform: translateX(3px);
+        }
+
+        .task-checkbox-wrapper {
+            position: relative;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .task-checkbox-wrapper input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .checkbox-custom {
+            height: 18px;
+            width: 18px;
+            background-color: transparent;
+            border: 2px solid var(--text-muted);
+            border-radius: 4px;
+            display: inline-block;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .task-item input:checked ~ .checkbox-custom {
+            background-color: var(--accent-success);
+            border-color: var(--accent-success);
+        }
+
+        .checkbox-custom::after {
+            content: '';
+            position: absolute;
+            display: none;
+            left: 5px;
+            top: 2px;
+            width: 4px;
+            height: 8px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .task-item input:checked ~ .checkbox-custom::after {
+            display: block;
+        }
+
+        .task-label-text {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            transition: var(--transition);
+            line-height: 1.4;
+        }
+
+        @media (min-width: 768px) {
+            .task-label-text {
+                font-size: 0.95rem;
+            }
+        }
+
+        .task-item input:checked ~ .task-label-text {
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        /* Sidebar Dynamic Block Attributes */
+        .details-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .sidebar-block {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 1.25rem;
+            border-radius: 12px;
+        }
+
+        @media (min-width: 768px) {
+            .sidebar-block {
+                padding: 1.5rem;
+            }
+        }
+
+        .sidebar-block h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        @media (min-width: 768px) {
+            .sidebar-block h4 {
+                font-size: 0.95rem;
+            }
+        }
+
+        .insight-quote {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border-left: 3px solid var(--accent-secondary);
+            padding-left: 0.75rem;
+            font-style: italic;
+        }
+
+        @media (min-width: 768px) {
+            .insight-quote {
+                font-size: 0.95rem;
+                padding-left: 1rem;
+            }
+        }
+
+        .resource-link-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .resource-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: var(--transition);
+            gap: 0.5rem;
+        }
+
+        .resource-btn span:first-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .resource-btn span:last-child {
+            flex-shrink: 0;
+        }
+
+        .resource-btn:hover {
+            background: var(--card-glow);
+            border-color: var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .outcome-item {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            line-height: 1.4;
+        }
+
+        @media (min-width: 768px) {
+            .outcome-item {
+                font-size: 0.9rem;
+            }
+        }
+
+        .outcome-item::before {
+            content: '✓';
+            color: var(--accent-success);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Toolkit Practical Dynamic Applications Module */
+        .tools-section {
+            padding: 4rem 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (min-width: 768px) {
+            .tools-section {
+                padding: 6rem 0;
+            }
+        }
+
+        .tool-grid-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .tool-grid-layout {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+                margin-top: 3rem;
+            }
+        }
+
+        .interactive-tool-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .interactive-tool-card {
+                padding: 2.5rem;
+            }
+        }
+
+        .tool-header-meta {
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .tool-header-meta {
+                margin-bottom: 2rem;
+            }
+        }
+
+        .tool-header-meta h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .tool-header-meta h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        .tool-header-meta p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 768px) {
+            .tool-header-meta p {
+                font-size: 0.95rem;
+            }
+        }
+
+        .form-element-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-element-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .form-element-group input,
+        .form-element-group select,
+        .form-element-group textarea {
+            width: 100%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .form-element-group input:focus,
+        .form-element-group select:focus,
+        .form-element-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        .primary-action-btn {
+            background: var(--accent-primary);
+            color: #ffffff;
+            border: none;
+            padding: 0.85rem 1.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .primary-action-btn:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+        }
+
+        .tool-calc-output {
+            margin-top: 1.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .tool-calc-output {
+                margin-top: 2rem;
+                padding: 1.5rem;
+            }
+        }
+
+        .output-row-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        .output-row-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .output-row-item:first-child {
+            padding-top: 0;
+        }
+
+        .output-row-item span:first-child {
+            color: var(--text-secondary);
+        }
+
+        .output-row-item span:last-child {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Business Model Canvas Blueprint Visualizer - Mobile Responsive Grid */
+        .canvas-section {
+            padding: 4rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .canvas-section {
+                padding: 6rem 0;
+            }
+        }
+
+        .canvas-grid-blueprint {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .canvas-grid-blueprint {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .canvas-grid-blueprint {
+                grid-template-columns: repeat(5, 1fr);
+                grid-template-rows: repeat(2, 220px) 140px;
+                margin-top: 3rem;
+            }
+        }
+
+        .canvas-node {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            min-height: 200px;
+        }
+
+        @media (min-width: 1200px) {
+            .canvas-node {
+                min-height: auto;
+            }
+        }
+
+        .canvas-node:hover {
+            border-color: var(--accent-primary);
+            transform: scale(1.01);
+        }
+
+        .canvas-node h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-secondary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .canvas-node p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
+        }
+
+        .canvas-editable-space {
+            flex-grow: 1;
+            width: 100%;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.6rem;
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            resize: none;
+            transition: var(--transition);
+        }
+
+        .canvas-editable-space:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+        }
+
+        /* Specific Grid Layout Mapping Nodes for desktop 1200px viewports */
+        @media (min-width: 1200px) {
+            .node-kp { grid-column: 1; grid-row: span 2; }
+            .node-ka { grid-column: 2; grid-row: 1; }
+            .node-kr { grid-column: 2; grid-row: 2; }
+            .node-vp { grid-column: 3; grid-row: span 2; }
+            .node-cr { grid-column: 4; grid-row: 1; }
+            .node-ch { grid-column: 4; grid-row: 2; }
+            .node-cs { grid-column: 5; grid-row: span 2; }
+            .node-cst { grid-column: span 2; grid-row: 3; min-height: 130px; }
+            .node-rev { grid-column: span 3; grid-row: 3; min-height: 130px; }
+        }
+
+        /* Resource Vault Component Blueprint */
+        .vault-section {
+            padding: 4rem 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (min-width: 768px) {
+            .vault-section {
+                padding: 6rem 0;
+            }
+        }
+
+        .vault-grid-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .vault-grid-layout {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .vault-grid-layout {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+                margin-top: 3rem;
+            }
+        }
+
+        .vault-book-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        @media (min-width: 768px) {
+            .vault-book-card {
+                padding: 1.75rem;
+            }
+        }
+
+        .vault-book-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-secondary);
+        }
+
+        .book-tier-tag {
+            align-self: flex-start;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            margin-bottom: 1.25rem;
+        }
+
+        .tier-essential {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .tier-important {
+            background: rgba(245, 158, 11, 0.1);
+            color: #f59e0b;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .tier-optional {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .vault-book-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .vault-book-card h4 {
+                font-size: 1.15rem;
+            }
+        }
+
+        .book-author {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .book-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            line-height: 1.5;
+        }
+
+        /* Global Structural Footer */
+        .site-footer {
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .site-footer p {
+            margin-top: 0.5rem;
+        }
+
+        /* Animation Keyframe Nodes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                ⚡ MASTERY.30
+            </a>
+            
+            <div class="nav-links" id="navLinksMenu">
+                <a href="#roadmap" class="nav-link active" onclick="closeMobileMenu()">Roadmap</a>
+                <a href="#tools" class="nav-link" onclick="closeMobileMenu()">Strategic Sandboxes</a>
+                <a href="#vault" class="nav-link" onclick="closeMobileMenu()">Knowledge Vault</a>
+            </div>
+
+            <div class="nav-actions">
+                <div class="nav-progress">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" id="globalProgressBarFill"></div>
+                    </div>
+                    <span class="progress-text" id="globalProgressText">0% Done</span>
+                </div>
+                <button class="theme-toggle" id="globalThemeToggleBtn" aria-label="Toggle Theme">🌓</button>
+                <button class="mobile-menu-toggle" id="menuToggleBtn" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text-block">
+                <span class="hero-tagline">30-Day Business Mastery Blueprint</span>
+                <h1>Master Entrepreneurship, Build Sustainable Wealth.</h1>
+                <p>An intensive, actionable digital workspace designed to transition you from an employee mindset to a verified high-growth founder strategy in 4 structural sprint phases.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <span class="stat-val">3-4 Hrs</span>
+                        <span class="stat-lbl">Daily Commitment</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-val">30 Days</span>
+                        <span class="stat-lbl">Execution Track</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-val">04 Weeks</span>
+                        <span class="stat-lbl">Curriculum Blocks</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="radial-progress-card">
+                    <div class="svg-circle-container">
+                        <svg width="180" height="180">
+                            <circle class="circle-bg" cx="90" cy="90" r="80"></circle>
+                            <circle class="circle-progress" id="radialCircleProgress" cx="90" cy="90" r="80"></circle>
+                        </svg>
+                        <div class="circle-percentage" id="radialProgressText">0%</div>
+                    </div>
+                    <h3 style="margin-bottom: 0.5rem;">Your Roadmap Velocity</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Track completion across all milestones globally inside local state storage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hub-section">
+        <div class="container">
+            <div class="hub-tabs">
+                <div class="hub-tab active" onclick="switchWeekTab(1)">
+                    <span class="hub-tab-num">Week 01</span>
+                    <span class="hub-tab-title">Foundations & Mindset</span>
+                </div>
+                <div class="hub-tab" onclick="switchWeekTab(2)">
+                    <span class="hub-tab-num">Week 02</span>
+                    <span class="hub-tab-title">Customer Psychology</span>
+                </div>
+                <div class="hub-tab" onclick="switchWeekTab(3)">
+                    <span class="hub-tab-num">Week 03</span>
+                    <span class="hub-tab-title">Monetization Architecture</span>
+                </div>
+                <div class="hub-tab" onclick="switchWeekTab(4)">
+                    <span class="hub-tab-num">Week 04</span>
+                    <span class="hub-tab-title">Execution & Strategy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container roadmap-container" id="roadmap">
+        
+        <div id="week1-pane" class="week-wrapper active-week">
+            <div class="week-header-block">
+                <h2>Week 1: Mindset, Assets & Structural Vision</h2>
+                <p>Goal: Reprogram financial behavior assumptions, analyze wealth generation loops, and confirm systemic targets.</p>
+            </div>
+            
+            <div class="checkpoint-banner">
+                <div class="checkpoint-info">
+                    <h4>Week 1 Target Milestones Verification Checkpoint</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Deconstruct limiting programming, audit net assets, and define venture execution guidelines.</p>
+                </div>
+                <div class="checkpoint-grid">
+                    <span class="checkpoint-pill" id="chk-w1-1">Money Beliefs Audit</span>
+                    <span class="checkpoint-pill" id="chk-w1-2">Asset Infrastructure Set</span>
+                    <span class="checkpoint-pill" id="chk-w1-3">Network Ideation Logs</span>
+                </div>
+            </div>
+
+            <div id="week1-days-anchor"></div>
+        </div>
+
+        <div id="week2-pane" class="week-wrapper">
+            <div class="week-header-block">
+                <h2>Week 2: Customer Discovery & Persuasion Frameworks</h2>
+                <p>Goal: Conduct practical unbiased field research, find market pain points, and map buy motivations.</p>
+            </div>
+            
+            <div class="checkpoint-banner">
+                <div class="checkpoint-info">
+                    <h4>Week 2 Target Milestones Verification Checkpoint</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Isolate verified customer friction parameters without injecting baseline pitch confirmation bias.</p>
+                </div>
+                <div class="checkpoint-grid">
+                    <span class="checkpoint-pill" id="chk-w2-1">15 Customer Interviews</span>
+                    <span class="checkpoint-pill" id="chk-w2-2">Pain Signal Isolation</span>
+                    <span class="checkpoint-pill" id="chk-w2-3">Trigger Driver Blueprint</span>
+                </div>
+            </div>
+
+            <div id="week2-days-anchor"></div>
+        </div>
+
+        <div id="week3-pane" class="week-wrapper">
+            <div class="week-header-block">
+                <h2>Week 3: Business Models & Monetization Architecture</h2>
+                <p>Goal: Build modern product ecosystems, map economic unit flows, and determine value optimization models.</p>
+            </div>
+            
+            <div class="checkpoint-banner">
+                <div class="checkpoint-info">
+                    <h4>Week 3 Target Milestones Verification Checkpoint</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Synthesize cashflow economics mapping, cost allocations, and core pricing strategy.</p>
+                </div>
+                <div class="checkpoint-grid">
+                    <span class="checkpoint-pill" id="chk-w3-1">Revenue Mapping</span>
+                    <span class="checkpoint-pill" id="chk-w3-2">Unit Cost Viability</span>
+                    <span class="checkpoint-pill" id="chk-w3-3">Canvas Synthesis</span>
+                </div>
+            </div>
+
+            <div id="week3-days-anchor"></div>
+        </div>
+
+        <div id="week4-pane" class="week-wrapper">
+            <div class="week-header-block">
+                <h2>Week 4: Execution & Your Personal Wealth Plan</h2>
+                <p>Goal: Transition structured frameworks into localized tactical sprints and lock in long-term legacy timelines.</p>
+            </div>
+            
+            <div class="checkpoint-banner">
+                <div class="checkpoint-info">
+                    <h4>Week 4 Target Milestones Verification Checkpoint</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Deploy structural alpha iteration steps to establish active transactional momentum.</p>
+                </div>
+                <div class="checkpoint-grid">
+                    <span class="checkpoint-pill" id="chk-w4-1">90-Day Tactical Lock</span>
+                    <span class="checkpoint-pill" id="chk-w4-2">Asset Deployment Plan</span>
+                    <span class="checkpoint-pill" id="chk-w4-3">Alpha Launch Actions</span>
+                </div>
+            </div>
+
+            <div id="week4-days-anchor"></div>
+        </div>
+
+    </main>
+
+    <section class="tools-section" id="tools">
+        <div class="container">
+            <div style="max-width: 700px; margin-bottom: 2rem;">
+                <span class="hero-tagline">Integrated Operational Suite</span>
+                <h2>Active Strategic Sandboxes</h2>
+                <p style="color: var(--text-secondary);">Input, analyze, and map real-world tactical calculations out of your business vision model frameworks live.</p>
+            </div>
+            
+            <div class="tool-grid-layout">
+                <div class="interactive-tool-card">
+                    <div class="tool-header-meta">
+                        <h3>Market Capacity Calculator (TAM/SAM/SOM)</h3>
+                        <p>Calculate realistic target penetration benchmarks out of your target segment.</p>
+                    </div>
+                    <form id="marketSizingCalcForm" onsubmit="calculateMarketMetrics(event)">
+                        <div class="form-element-group">
+                            <label>Total Addressable Market (TAM Total Population Context Nodes)</label>
+                            <input type="number" id="inputTamPop" placeholder="e.g., 1000000" required />
+                        </div>
+                        <div class="form-element-group">
+                            <label>Serviceable Addressable Market Ratio Benchmark Target (%)</label>
+                            <input type="number" id="inputSamPct" placeholder="e.g., 15" min="1" max="100" required />
+                        </div>
+                        <div class="form-element-group">
+                            <label>Serviceable Obtainable Market Realist Year 1 Scale Capture (%)</label>
+                            <input type="number" id="inputSomPct" placeholder="e.g., 5" min="1" max="100" required />
+                        </div>
+                        <div class="form-element-group">
+                            <label>Average Projected Contract Allocation Annual Contract Value (USD)</label>
+                            <input type="number" id="inputAcv" placeholder="e.g., 500" required />
+                        </div>
+                        <button type="submit" class="primary-action-btn">Run Market Analysis Run</button>
+                    </form>
+                    
+                    <div class="tool-calc-output">
+                        <div class="output-row-item">
+                            <span>TAM Financial Sizing Volume Baseline:</span>
+                            <span id="outTam">$0.00</span>
+                        </div>
+                        <div class="output-row-item">
+                            <span>SAM Segment Potential Capture Level:</span>
+                            <span id="outSam">$0.00</span>
+                        </div>
+                        <div class="output-row-item">
+                            <span>SOM Realistic Launch Objective Goal:</span>
+                            <span id="outSom" style="color: var(--accent-secondary); font-weight:700;">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interactive-tool-card">
+                    <div class="tool-header-meta">
+                        <h3>Asymmetric Pricing Optimization Grid</h3>
+                        <p>Calculate unit parameters based on quantified customer pain value metrics.</p>
+                    </div>
+                    <form id="pricingStrategyMetricForm" onsubmit="calculatePricingMetrics(event)">
+                        <div class="form-element-group">
+                            <label>Quantified Financial Scale of Customer Pain Value (Annualized Value / USD)</label>
+                            <input type="number" id="inputPainValue" placeholder="e.g., 2000" required />
+                        </div>
+                        <div class="form-element-group">
+                            <label>Projected Target Monthly Fixed Operations Costs</label>
+                            <input type="number" id="inputOpex" placeholder="e.g., 1500" required />
+                        </div>
+                        <button type="submit" class="primary-action-btn">Optimize Monetization Spread</button>
+                    </form>
+                    
+                    <div class="tool-calc-output">
+                        <div class="output-row-item">
+                            <span>Value Tier Target Base (10% Capture Scale):</span>
+                            <span id="tierLow">$0.00 / mo</span>
+                        </div>
+                        <div class="output-row-item">
+                            <span>Premium Acceleration Target (30% Optimal Scale):</span>
+                            <span id="tierHigh">$0.00 / mo</span>
+                        </div>
+                        <div class="output-row-item">
+                            <span>Breakeven Threshold Volume Needed (At 10% Tier):</span>
+                            <span id="breakevenUnits" style="color: var(--accent-success); font-weight:700;">0 Units</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="canvas-section">
+        <div class="container">
+            <div style="max-width: 700px; margin-bottom: 1rem;">
+                <span class="hero-tagline">Day 19 Design Blueprint Workspace</span>
+                <h2>The 1-Page Business Model Canvas</h2>
+                <p style="color: var(--text-secondary);">Construct, synthesize, and update tactical structure fields. Data automatically saves in localized state containers.</p>
+            </div>
+
+            <div class="canvas-grid-blueprint">
+                
+                <div class="canvas-node node-kp">
+                    <h4>🤝 Key Partners</h4>
+                    <p>Who helps you execute operations effectively?</p>
+                    <textarea class="canvas-editable-space" id="canvas_kp" placeholder="List key strategic partnerships..." oninput="persistCanvas()"></textarea>
+                </div>
+
+                <div class="canvas-node node-ka">
+                    <h4>⚡ Key Activities</h4>
+                    <p>Crucial daily actions required.</p>
+                    <textarea class="canvas-editable-space" id="canvas_ka" placeholder="List mandatory workflows..." oninput="persistCanvas()"></textarea>
+                </div>
+
+                <div class="canvas-node node-kr">
+                    <h4>💡 Key Resources</h4>
+                    <p>Assets required to function.</p>
+                    <textarea class="canvas-editable-space" id="canvas_kr" placeholder="List key tech, human, capital assets..." oninput="persistCanvas()"></textarea>
+                </div>
+
+                <div class="canvas-node node-vp">
+                    <h4>💎 Value Propositions</h4>
+                    <p>What core solution are you offering customers?</p>
+                    <textarea class="canvas-editable-space" id="canvas_vp" placeholder="What distinct outcome do you guarantee?..." oninput="persistCanvas()"></textarea>
+                </div>
+
+                <div class="canvas-node node-cr">
+                    <h4>❤️ Customer Relationships</h4>
+                    <p>How do you interact and retain users?</p>
+                    <textarea class="canvas-editable-space" id="canvas_cr" placeholder="Automation, direct support, or community?..." oninput="persistCanvas()"></textarea>
+                </div>
+
+                <div class="canvas-node node-ch">
+                    <h4>📣 Channels</h4>
+                    <p>How do you reach your market segments?</p>
+                    <textarea class="canvas-editable-space" id="canvas_ch" placeholder="Inbound content, outbound cold sequences, ads?..." oninput="persistCanvas()"></textarea>
+                </div>
+
+                <div class="canvas-node node-cs">
+                    <h4>🎯 Customer Segments</h4>
+                    <p>Who explicitly has this specific acute pain?</p>
+                    <textarea class="canvas-editable-space" id="canvas_cs" placeholder="Define the explicit persona niche node..." oninput="persistCanvas()"></textarea>
+                </div>
+
+                <div class="canvas-node node-cst">
+                    <h4>📉 Cost Structure</h4>
+                    <p>Major cost allocation units required to launch.</p>
+                    <textarea class="canvas-editable-space" id="canvas_cst" placeholder="Opex, software subscriptions, contractor parameters..." oninput="persistCanvas()"></textarea>
+                </div>
+
+                <div class="canvas-node node-rev">
+                    <h4>📈 Revenue Streams</h4>
+                    <p>How does cashflow move into the asset balance sheet?</p>
+                    <textarea class="canvas-editable-space" id="canvas_rev" placeholder="Recurring monthly tiers, usage pricing, contract configurations..." oninput="persistCanvas()"></textarea>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="vault-section" id="vault">
+        <div class="container">
+            <div style="max-width: 700px;">
+                <span class="hero-tagline">Curated Strategic Library Asset</span>
+                <h2>The Elite Knowledge Vault</h2>
+                <p style="color: var(--text-secondary);">Master foundational blueprints recommended within curriculum milestones.</p>
+            </div>
+            
+            <div class="vault-grid-layout" id="vaultBooksAnchor"></div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <h3 style="font-family: var(--font-mono); font-size:1.25rem;">MASTERY.30</h3>
+            <p>Sustainable Wealth is Structured Through Action. Formulate Frameworks. Build Assets.</p>
+            <p style="font-size:0.75rem; color: var(--text-muted); margin-top:2rem;">&copy; 2026 Mastery Execution Engine Workspace Terminal. Built Standalone.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Core Curricular Datasets Definition Structure Mapping
+        const curriculumData = [
+            // ==================== WEEK 1 CURRICULUM ====================
+            {
+                week: 1, day: 1, time: "4.5 hours", theme: "How rich people think",
+                title: "Mindset Reset & Wealth Foundations",
+                insight: "Your blueprint controls your balance sheet. Reprogram limiting blocks first.",
+                tasks: [
+                    "Watch 'The Difference Between Rich & Poor' (Graham Stephan, 15 mins)",
+                    "Journal Exercise: Map 3 systemic money beliefs limiting your present trajectory",
+                    "Read: 'The Millionaire Mindset' by Harv Eker (Ch 1-2, 90 mins)",
+                    "Complete localized Money Beliefs Audit framework template worksheet (60 mins)",
+                    "Read: 'Rich Dad Poor Dad' by Robert Kiyosaki (Ch 1-2, 60 mins)",
+                    "Construct your dynamic Personal Balance Sheet infrastructure file (45 mins)",
+                    "Brainstorm 5 high-impact business structural opportunities you observe inside your current network (30 mins)"
+                ],
+                resources: ["YouTube: Graham Stephan", "Book: The Millionaire Mindset Text", "Book: Rich Dad Poor Dad Tracker"],
+                outcomes: ["Understand structural money blueprints", "Complete current personal asset balance audit", "Identify early network opportunities"]
+            },
+            {
+                week: 1, day: 2, time: "4.0 hours", theme: "The rule of assets vs liabilities",
+                title: "The Asset Engine Architecture",
+                insight: "Rich nodes acquire high-impact assets that generate cashflow. Poor nodes accumulate liabilities that drain cashflow.",
+                tasks: [
+                    "Watch 'Asset Class Breakdowns' — Strategic Accounting Masterclass (30 mins)",
+                    "Map out every single recurring monthly expenditure category currently active inside your infrastructure (45 mins)",
+                    "Classify your current capital layout items strictly into true Asset vs Liability columns (45 mins)",
+                    "Deconstruct the cashflow loop model mechanics of a typical software subscription business vs. rental property models (60 mins)",
+                    "Draft an optimization layout blueprint to reduce monthly personal consumption burn by 15% (60 mins)"
+                ],
+                resources: ["Accounting Masterclass Video", "Asset Classifier Worksheet Tool"],
+                outcomes: ["Differentiate true assets from systemic consumer liabilities", "Map your structural capital leakages", "Establish target allocation metrics"]
+            },
+            {
+                week: 1, day: 3, time: "4.5 hours", theme: "How to build long term assets",
+                title: "The 5-Year Structural Wealth Timeline",
+                insight: "Wealth parameters scale over multi-year cycles. Allocate attention models strictly inside long-term equity asset models.",
+                tasks: [
+                    "Watch: 'How to Build Wealth' — The Finance Strategist (20 mins)",
+                    "Read: 'Rich Dad Poor Dad' continued syllabus sections (Ch 3-4, 60 mins)",
+                    "Draft your 5-year structured asset acquisition and building blueprint (90 mins)",
+                    "Deconstruct 3 wealthy reference cases inside your network to evaluate capital generation loops (60 mins)",
+                    "Compute localized wealth timeline trajectories based on monthly asset targets (30 mins)"
+                ],
+                resources: ["YouTube: The Finance Strategist Video", "Book: Rich Dad Poor Dad Tracker"],
+                outcomes: ["Understand assets vs. liabilities", "Plan your first assets to build", "Know your wealth timeline"]
+            },
+            {
+                week: 1, day: 4, time: "4.0 hours", theme: "Your money blueprint controls your wealth",
+                title: "Money Psychology & Beliefs",
+                insight: "Your assumptions regarding capital constraints are historical conditioning patterns, not rigid truths.",
+                tasks: [
+                    "Watch: 'The Money Mindset' — Curated Strategic Psychological TED Node (20 mins)",
+                    "Read: 'The Millionaire Mindset' core thesis alignment (Ch 3-4, 90 mins)",
+                    "Reflect on structural childhood modeling behaviors regarding access to assets (60 mins)",
+                    "Formulate your modern optimized financial framework beliefs paradigm sheet (60 mins)",
+                    "Establish 5 core daily money alignment framing declarations (20 mins)"
+                ],
+                resources: ["Book Source: The Millionaire Mindset Text"],
+                outcomes: ["Understand your money blueprint", "Rewrite your money beliefs", "Start reprogramming mindset"]
+            },
+            {
+                week: 1, day: 5, time: "4.0 hours", theme: "How to choose which opportunities to pursue",
+                title: "Decision-Making & Opportunity Assessment",
+                insight: "Ruthlessly optimize vectors by utilizing asymmetric return variables while minimizing terminal system risks.",
+                tasks: [
+                    "Study First-Principles Analysis methodology to evaluate potential micro-market entry positions (60 mins)",
+                    "Map out a localized 2x2 Impact vs. Effort prioritizing grid tracking your top 5 business concepts (90 mins)",
+                    "Isolate a singular core venture track to focus curriculum validation cycles upon across Week 2 (30 mins)",
+                    "Document 3 baseline structural industry assumptions regarding your chosen sector to systematically deconstruct later (60 mins)"
+                ],
+                resources: ["Prioritization Framework Guidelines", "Sector Observation Log Module"],
+                outcomes: ["Utilize structural logic tools for decision optimization", "Filter unrelated strategy ideas", "Isolate primary operational concept focus"]
+            },
+            {
+                week: 1, day: 6, time: "3.5 hours", theme: "Defining clear business target metrics",
+                title: "Strategic Target & Volume Setting",
+                insight: "Vague targets create erratic execution metrics. Quantify required customer conversion numbers from base financial goals.",
+                tasks: [
+                    "Calculate your exact mandatory baseline monthly personal survival burn rate metrics figure (45 mins)",
+                    "Define a secondary 12-month structural revenue acceleration target parameter (30 mins)",
+                    "Utilize the pricing spread calculator to determine necessary customer volume thresholds (60 mins)",
+                    "Draft an executive summary brief mapping your target niche focus area (75 mins)"
+                ],
+                resources: ["Integrated Sandbox Calculators", "Venture Summary Brief Formats"],
+                outcomes: ["Quantify accurate operational survival metrics", "Establish target baseline volume needs", "Write primary project structural parameter sheet"]
+            },
+            {
+                week: 1, day: 7, time: "5.0 hours", theme: "Reviewing week 1 progress",
+                title: "Consolidation & Phase 1 Audit Milestone",
+                insight: "True strategic maturity occurs when structural learning variables transition cleanly into subconscious habits.",
+                tasks: [
+                    "Synthesize all study logs, task summaries, and documentation notes written across Week 1",
+                    "Re-read highlighted passages across primary core textbooks",
+                    "Journal on internal shifts regarding risk perception, asset architecture, and structural scaling plans",
+                    "Stream 2 complete analytical reference audio case episodes from 'How I Built This' network ecosystem",
+                    "Prepare tactical system targets file matching Week 2 criteria requirements"
+                ],
+                resources: ["Podcast: How I Built This Master Files", "Personal Study Logs Archive"],
+                outcomes: ["Consolidate Week 1 foundations", "Audit mindset evolution progress", "Lock in parameters for Phase 2 validation"]
+            },
+
+            // ==================== WEEK 2 CURRICULUM ====================
+            {
+                week: 2, day: 8, time: "4.0 hours", theme: "Real customer problems vs. assumed solutions",
+                title: "Finding Problems Worth Solving",
+                insight: "Do not pitch assumptions. Listen to system problems. Amateur founders fall in love with engineering solutions.",
+                tasks: [
+                    "Read: 'The Mom Test' customer communication laws (Ch 1-2, 90 mins)",
+                    "Watch: 'Talking to Customers' — Y Combinator Curriculum Library (25 mins)",
+                    "Interview 3 human nodes in your niche regarding acute everyday operating issues (90 mins)",
+                    "Document precise verbatim customer problem logging statements (30 mins)"
+                ],
+                resources: ["Book: The Mom Test Blueprint", "YouTube: Y Combinator Interview Stack"],
+                outcomes: ["Know how to have customer conversations", "Identify real problems (not made up)", "Have talked to potential customers"]
+            },
+            {
+                week: 2, day: 9, time: "4.0 hours", theme: "Deep dive into customer understanding",
+                title: "Customer Discovery Continued",
+                insight: "Your primary operational metric during early stages is the density of unbiased feedback signals.",
+                tasks: [
+                    "Read: 'The Mom Test' advanced feedback capture rules (Ch 3-4, 90 mins)",
+                    "Execute 3 additional localized customer discovery conversations within target market (90 mins)",
+                    "Analyze feedback transcripts to isolate repetitive friction statements (30 mins)",
+                    "Refine problem log dataset fields inside local files (30 mins)"
+                ],
+                resources: ["Book: The Mom Test Blueprint", "Discovery Log Workspace Document"],
+                outcomes: ["Avoid bad validation data", "Uncover hidden customer frustrations", "Clean problem tracking data parameters"]
+            },
+            {
+                week: 2, day: 10, time: "4.0 hours", theme: "Why people buy products",
+                title: "Customer Psychology & Positioning",
+                insight: "Customers buy solutions to handle severe emotional impulses, later rationalizing using logic.",
+                tasks: [
+                    "Read: 'Influence' psychological baseline compliance frameworks (Ch 1-2, 90 mins)",
+                    "Watch: 'Why People Buy' — Conversion Architecture Breakdown (20 mins)",
+                    "Deconstruct emotional positioning frameworks across 3 high-scale market competitors (60 mins)",
+                    "Map core psychological emotional drivers triggering transactional behavior in your sector (30 mins)"
+                ],
+                resources: ["Book: Influence (Robert Cialdini)", "YouTube: Conversion Strategy Hub"],
+                outcomes: ["Understand customer psychology", "Know emotional triggers", "See how successful businesses position products"]
+            },
+            {
+                week: 2, day: 11, time: "4.0 hours", theme: "Persuasion principles and sales psychology",
+                title: "Customer Psychology Deep Dive",
+                insight: "Systemic application of human compliance architecture builds trust models automatically at scale.",
+                tasks: [
+                    "Read: 'Influence' advanced conversion rules (Ch 3-4, 90 mins)",
+                    "Map how social proof metrics and authority indicators are deployed on standard landing pages (60 mins)",
+                    "Interview 3 target users specifically investigating past purchasing behavior patterns (60 mins)",
+                    "Synthesize qualitative buying pattern attributes into a primary avatar spreadsheet (30 mins)"
+                ],
+                resources: ["Book: Influence (Robert Cialdini)", "Target Persona Spreadsheet Model"],
+                outcomes: ["Deconstruct conversion mechanics", "Isolate key purchasing drivers", "Build structural customer avatar node"]
+            },
+            {
+                week: 2, day: 12, time: "4.5 hours", theme: "How to find your perfect customer",
+                title: "Your Ideal Customer Avatar",
+                insight: "A generic target profile scales poorly. Target an explicit customer profile experiencing maximum pain density.",
+                tasks: [
+                    "Conduct 3 target demographic profiling mapping loops to determine operational niches (60 mins)",
+                    "Watch: 'Finding Product Market Fit' — Sequoia Capital Lecture (30 mins)",
+                    "Draft an extensive character breakdown dossier for your top operational client type (120 mins)",
+                    "Validate avatar assumptions by checking online forum discussion channels (60 mins)"
+                ],
+                resources: ["Sequoia PMF Lecture Archive", "Avatar Dossier Content Template"],
+                outcomes: ["Isolate a granular customer avatar", "Confirm niche behavior patterns", "Align profile fields with data tracks"]
+            },
+            {
+                week: 2, day: 13, time: "4.0 hours", theme: "Testing your customer profile",
+                title: "Avatar Profile Verification Loop",
+                insight: "Data beats theories. Validate your avatar model by setting up actual conversation nodes.",
+                tasks: [
+                    "Source contact parameters for 15 potential avatar matches via business networks (90 mins)",
+                    "Execute 3 targeted validation text conversations using 'The Mom Test' frameworks (90 mins)",
+                    "Log workflow responses to verify if assumed pain matches current reality models (30 mins)",
+                    "Update avatar character files based on actual live responses (30 mins)"
+                ],
+                resources: ["Sourcing Guide Parameters", "Discovery Log Workspace Document"],
+                outcomes: ["Validate avatar assumptions with live subjects", "Filter incorrect targeting parameters", "Refine niche customer models"]
+            },
+            {
+                week: 2, day: 14, time: "4.0 hours", theme: "Reviewing week 2 customer research",
+                title: "Week 2 Synthesis & Problem Validation Audit",
+                insight: "Review quantitative customer signals to confirm clear market demand before engineering solutions.",
+                tasks: [
+                    "Review every single problem log entry gathered across 15 total conversations (90 mins)",
+                    "Isolate the single most painful, repetitive problem pattern identified (60 mins)",
+                    "Draft a 1-page validation audit confirming structural market problem parameters (60 mins)",
+                    "Confirm clear operational go-forward signals for the next phase (30 mins)"
+                ],
+                resources: ["Discovery Log Workspace Document", "Validation Synthesis Template Pack"],
+                outcomes: ["Synthesize qualitative customer discoveries", "Identify the core product opportunity", "Complete problem validation stage"]
+            },
+
+            // ==================== WEEK 3 CURRICULUM ====================
+            {
+                week: 3, day: 15, time: "4.5 hours", theme: "How to build a business model",
+                title: "Introduction to Business Architecture",
+                insight: "A business model defines how you capture sustainable value. Keep delivery loops simple.",
+                tasks: [
+                    "Read: 'The Lean Startup' value loop creation principles (Ch 1-2, 90 mins)",
+                    "Watch: 'Business Model Formulations' — Stanford Engineering (30 mins)",
+                    "Deconstruct 3 clear modern value generation engines matching your business sector (90 mins)",
+                    "Draft an operational layout flow mapping value flow from creation to delivery (60 mins)"
+                ],
+                resources: ["Book: The Lean Startup Framework", "Stanford Engineering Video Lecture"],
+                outcomes: ["Understand value loops", "Deconstruct competitor value delivery models", "Draft early generation layouts"]
+            },
+            {
+                week: 3, day: 16, time: "4.0 hours", theme: "Mapping out your revenue engine",
+                title: "The Value-Based Revenue Engine",
+                insight: "Price your product based on the exact scale of pain eliminated, not arbitrary hours spent.",
+                tasks: [
+                    "Read: 'The Lean Startup' growth metrics chapters (Ch 3-4, 90 mins)",
+                    "Run localized pricing scenarios using the pricing sandbox tool (60 mins)",
+                    "Draft a 3-tier pricing model structure optimized for your primary customer avatar (60 mins)",
+                    "Document value metrics to explicitly prove ROI parameters to clients (30 mins)"
+                ],
+                resources: ["Book: The Lean Startup Framework", "Integrated Sandbox Calculators"],
+                outcomes: ["Understand value pricing logic", "Set up clear value-based pricing structures", "Establish solid target pricing models"]
+            },
+            {
+                week: 3, day: 17, time: "4.0 hours", theme: "What are your business expenses?",
+                title: "The Unit Cost Allocation Layout",
+                insight: "Ruthlessly optimize structural costs. High operational overhead metrics kill business momentum early.",
+                tasks: [
+                    "List every single structural asset expense required to run your minimum viable solution (60 mins)",
+                    "Input target fixed opex data into the pricing sandbox tool (30 mins)",
+                    "Compute required sales volumes needed to cover operational breakeven levels (60 mins)",
+                    "Isolate 3 variable costs to optimize out of production tracking setups (60 mins)",
+                    "Set up an asset tracking ledger folder inside your documentation (30 mins)"
+                ],
+                resources: ["Integrated Sandbox Calculators", "Cost Structure Tracking Spreadsheet"],
+                outcomes: ["Know exact fixed expenses", "Calculate accurate sales targets to breakeven", "Build asset tracking layout file"]
+            },
+            {
+                week: 3, day: 18, time: "4.0 hours", theme: "How to scale your profit margins",
+                title: "Profit Maximization Mapping",
+                insight: "Optimize profit margins from day one. High margins provide buffer room for scaling operations.",
+                tasks: [
+                    "Analyze unit economic parameters across 3 high-scale industry cases (90 mins)",
+                    "Map out automated delivery mechanics to reduce human workflow involvement (60 mins)",
+                    "Calculate net profit margin expectations under 3 pricing conditions (60 mins)",
+                    "Document required margin floor boundaries to secure cashflow tracks (30 mins)"
+                ],
+                resources: ["Unit Economics Analysis Manuals", "Margin Modeling Grid Sheet"],
+                outcomes: ["Understand margin optimization rules", "Design automated fulfillment workflows", "Secure profit margin protection fields"]
+            },
+            {
+                week: 3, day: 19, time: "4.5 hours", theme: "Putting the 1-page canvas together",
+                title: "Synthesizing the Business Model Canvas",
+                insight: "A long plan is guesswork. Use a 1-page canvas blueprint to summarize all structural assumptions.",
+                tasks: [
+                    "Deconstruct every section block on the Business Model Canvas visual guide (60 mins)",
+                    "Fill in Key Partners, Activities, and Resources sections in the sandbox workspace (60 mins)",
+                    "Complete Value Proposition, Channels, and Segments interactive nodes (60 mins)",
+                    "Finalize Cost and Revenue blocks to lock in the total canvas layout (90 mins)"
+                ],
+                resources: ["Business Model Canvas Manuals", "Interactive Canvas Workspace Layer"],
+                outcomes: ["Understand the 1-page canvas layout", "Complete your interactive 1-page business canvas", "Link components inside a unified visual model"]
+            },
+            {
+                week: 3, day: 20, time: "4.0 hours", theme: "Reviewing your business model layout",
+                title: "Canvas Stress-Testing & Integrity Check",
+                insight: "Verify that all canvas sections align cleanly. Inconsistencies lead to broken deployment steps.",
+                tasks: [
+                    "Review all canvas text fields to check logic alignments (60 mins)",
+                    "Cross-reference customer segment pains against value proposition statements (60 mins)",
+                    "Verify revenue model metrics can sustain cost structures under conservative sales cases (90 mins)",
+                    "Refine text fields based on logic checks (30 mins)"
+                ],
+                resources: ["Interactive Canvas Workspace Layer", "Stress Test Evaluation Protocols"],
+                outcomes: ["Stress-test your business model blueprint", "Fix mismatched strategy components", "Lock in your verified 1-page canvas asset"]
+            },
+            {
+                week: 3, day: 21, time: "4.0 hours", theme: "Reviewing week 3 business model",
+                title: "Week 3 Synthesis & Economics Validation Audit",
+                insight: "Confirm financial model viability before proceeding to active market deployment loops.",
+                tasks: [
+                    "Compile all metrics from pricing sandboxes and canvas entries into a single profile (90 mins)",
+                    "Confirm projected Year 1 unit economic assumptions match target guidelines (60 mins)",
+                    "Draft a 1-page executive summary tracking the final architecture (60 mins)",
+                    "Authorize launch steps for Week 4 execution track (30 mins)"
+                ],
+                resources: ["Interactive Canvas Workspace Layer", "Modeling Templates Pack", "Executive Brief Formatting Blueprint"],
+                outcomes: ["Establish verified 1-page brief asset", "Formulate realistic Year 1 cashflow expectations", "Confirm unit economic baseline assumptions"]
+            },
+
+            // ==================== WEEK 4 CURRICULUM ====================
+            {
+                week: 4, day: 23, time: "4.0 hours", theme: "How to make smart business decisions",
+                title: "Decision-Making Frameworks",
+                insight: "Deconstruct business components to fundamental base facts instead of relying on common assumptions.",
+                tasks: [
+                    "Master First-Principles Thinking logic models to eliminate industry bias variables (60 mins)",
+                    "Watch: 'Elon Musk on First Principles' operational planning analysis clip (20 mins)",
+                    "Apply systematic prioritization grids across prospective venture ideas (30 mins)",
+                    "Rank project tracks using a 2x2 Impact-Effort asymmetric yield framework matrix (90 mins)",
+                    "Isolate your top project track for execution (30 mins)"
+                ],
+                resources: ["YouTube: First Principles Operational Analysis", "2x2 Dynamic Decision Spreadsheet Model"],
+                outcomes: ["Know decision-making frameworks", "Have chosen your #1 idea to pursue"]
+            },
+            {
+                week: 4, day: 24, time: "3.0 hours", theme: "What does success look like?",
+                title: "Your 5-Year Wealth Vision Blueprint",
+                insight: "Reverse engineer your tactical monthly activities from your long-term wealth targets.",
+                tasks: [
+                    "Quantify your 5-year target asset footprint, net worth goals, and monthly recurring generation goals",
+                    "Reverse engineer your organizational structure to determine customer volumes required to clear net metrics",
+                    "Map core operational milestone check targets across years 2, 3, and 4 to ensure alignment"
+                ],
+                resources: ["Long Range Modeling Strategic Guides"],
+                outcomes: ["Clear 5-year wealth vision", "Know what success looks like", "Understand step-by-step metrics required"]
+            },
+            {
+                week: 4, day: 25, time: "4.0 hours", theme: "Learning from successful companies",
+                title: "Case Studies in Sustainable Wealth Building",
+                insight: "Analyze historical failure histories to learn how to avoid common pitfalls before they happen.",
+                tasks: [
+                    "Analyze 3 deep-dive founder case case historical breakdowns from 'How I Built This' ecosystem archive (3 hours)",
+                    "Deconstruct the operational playbook of a primary historical wealth-builder inside your field (1 hour)",
+                    "Isolate 3 core tactical management choices from their scaling phase to apply to your project"
+                ],
+                resources: ["Podcast Database: How I Built This Master Files", "Founder Biography Case Logs"],
+                outcomes: ["See real examples of wealth building", "Learn from others' mistakes", "Get inspired by their journey"]
+            },
+            {
+                week: 4, day: 26, time: "3.0 hours", theme: "Detailed plan for next 3 months",
+                title: "The 90-Day Tactical Action Lock",
+                insight: "Long-term strategies are meaningless without a structured, highly optimized short-term execution loop.",
+                tasks: [
+                    "Map Month 1 tactical schedules focusing strictly on target client interviews and concept checks",
+                    "Map Month 2 operational targets around building a high-impact Minimum Viable Product layout",
+                    "Map Month 3 tracking metrics around active outbound distribution and getting your first paying clients"
+                ],
+                resources: ["90-Day Kanban Sprint Formatting Models"],
+                outcomes: ["Detailed 90-day action plan", "Know exactly what to do each week", "Clear launch timeline"]
+            },
+            {
+                week: 4, day: 27, time: "4.0 hours", theme: "How will you personally build wealth?",
+                title: "Your Personal Wealth Allocation Plan",
+                insight: "Venture operations yield quick income streams. Real long-term security is built through asset compounding.",
+                tasks: [
+                    "Finalize your personal income maximization and reallocation strategy documentation profile",
+                    "Establish a diversification asset matrix dividing capital across growth real estate and indexed assets",
+                    "Determine your financial independence velocity targets and timeline projections"
+                ],
+                resources: ["Personal Capital Structuring Allocation Handbooks"],
+                outcomes: ["Complete personal wealth strategy", "Know your path to financial independence", "Understand how you'll reallocate money"]
+            },
+            {
+                week: 4, day: 28, time: "3.0 hours", theme: "Keeping yourself accountable to your goals",
+                title: "Accountability Systems & Tracking Setups",
+                insight: "Execution quality drops without active observation structures. Build your operational monitoring loops.",
+                tasks: [
+                    "Select an execution partner or community network channel to report metrics to weekly",
+                    "Design a basic key performance dashboard document to track actual actions vs target schedules",
+                    "Write down your personal stakes declaration detailing rules if targets are missed"
+                ],
+                resources: ["Accountability Network Framing Templates"],
+                outcomes: ["Public commitment", "Accountability system", "Emotional connection to goal"]
+            },
+            {
+                week: 4, day: 30, time: "4.0 hours", theme: "From planning to execution",
+                title: "Day 30: The Alpha Launch Day Execution Track",
+                insight: "Continuous planning can turn into a form of procrastination. True market learning only begins once you ship.",
+                tasks: [
+                    "Review all completed tasks, model designs, and strategic canvas insights assembled over the past 30 days",
+                    "Initiate your project's first live market action step from your tactical roadmap options",
+                    "Deploy active outreach sequences or launch your core value landing page matrix to prospects",
+                    "Log details of your initial launch touchpoint to establish active momentum tracking parameters"
+                ],
+                resources: ["Venture Initiation Live Deployment Routines"],
+                outcomes: ["Have taken first real action", "Momentum toward your goal", "Confidence in direction"]
+            }
+        ];
+
+        const libraryData = [
+            {
+                title: "The Millionaire Mindset",
+                author: "Harv Eker",
+                tier: "essential",
+                desc: "Focuses on reprogramming deep limiting money blueprints and changing internal financial conditioning rules.",
+                link: "https://s3.amazonaws.com/hei-online/The%20Multi-Millionaire%20Mind.pdf"
+            },
+            {
+                title: "Rich Dad Poor Dad",
+                author: "Robert Kiyosaki",
+                tier: "essential",
+                desc: "Deconstructs the foundational rules of assets versus liabilities and shows how to buy recurring income engines.",
+                link: "https://s3.amazonaws.com/rd-downloads-01/Rich-Dad-Poor-Dad-eBook.pdf"
+            },
+            {
+                title: "The Lean Startup",
+                author: "Eric Ries",
+                tier: "essential",
+                desc: "Introduces data-driven validation frameworks, rapid product experimentation loops, and iterative build-measure-learn methods.",
+                link: "https://ia800509.us.archive.org/7/items/TheLeanStartupErickRies/The%20Lean%20Startup%20-%20Erick%20Ries.pdf"
+            },
+            {
+                title: "The Mom Test",
+                author: "Rob Fitzpatrick",
+                tier: "important",
+                desc: "The definitive guide for structuring unbiased customer discovery conversations without pitching solutions too early.",
+                link: "https://books.google.com.et/books?id=ET4cnwEACAAJ&printsec=frontcover&redir_esc=y#v=onepage&q&f=false"
+            },
+            {
+                title: "Influence",
+                author: "Robert Cialdini",
+                tier: "important",
+                desc: "Explores the psychological leverage points driving human compliance, conversions, and sales decisions.",
+                link: "https://dn710600.ca.archive.org/0/items/ThePsychologyOfPersuasion/The%20Psychology%20of%20Persuasion.pdf"
+            },
+            {
+                title: "Zero to One",
+                author: "Peter Thiel",
+                tier: "optional",
+                desc: "Teaches founders how to escape standard market competition by building defensible monopoly models.",
+                link: "https://icrrd.com/public/media/01-11-2020-203418Zero%20to%20One.pdf"
+            },
+            {
+                title: "The 4-Hour Workweek",
+                author: "Tim Ferriss",
+                tier: "optional",
+                desc: "Focuses on automated lifestyle design, operational efficiency strategies, and out-tasking models."
+            }
+        ];
+
+        // Core App Processing Functions & Initialization Logic
+        document.addEventListener("DOMContentLoaded", () => {
+            initializeTheme();
+            initializeMobileMenu();
+            generateRoadmapDom();
+            generateLibraryVaultDom();
+            loadSavedState();
+            recalculateProgress();
+        });
+
+        // Theme Switch Mechanics
+        function initializeTheme() {
+            const savedTheme = localStorage.getItem("mastery_theme") || "dark";
+            document.documentElement.setAttribute("data-theme", savedTheme);
+            
+            document.getElementById("globalThemeToggleBtn").addEventListener("click", () => {
+                const curr = document.documentElement.getAttribute("data-theme");
+                const next = curr === "dark" ? "light" : "dark";
+                document.documentElement.setAttribute("data-theme", next);
+                localStorage.setItem("mastery_theme", next);
+            });
+        }
+
+        // Mobile Menu Toggling Handling Engine
+        function initializeMobileMenu() {
+            const btn = document.getElementById("menuToggleBtn");
+            const menu = document.getElementById("navLinksMenu");
+            
+            btn.addEventListener("click", () => {
+                btn.classList.toggle("open");
+                menu.classList.toggle("mobile-open");
+            });
+        }
+
+        function closeMobileMenu() {
+            document.getElementById("menuToggleBtn").classList.remove("open");
+            document.getElementById("navLinksMenu").classList.remove("mobile-open");
+        }
+
+        // Dynamic Curricular Grid DOM Builder
+        function generateRoadmapDom() {
+            const w1Anchor = document.getElementById("week1-days-anchor");
+            const w2Anchor = document.getElementById("week2-days-anchor");
+            const w3Anchor = document.getElementById("week3-days-anchor");
+            const w4Anchor = document.getElementById("week4-days-anchor");
+
+            curriculumData.forEach(dayObj => {
+                const dayCard = document.createElement("div");
+                dayCard.className = "day-card";
+                dayCard.id = `day-card-${dayObj.day}`;
+
+                // Process unique checkbox IDs matching master indexing array references
+                let tasksHtml = '';
+                dayObj.tasks.forEach((task, idx) => {
+                    const globalTaskIdx = `d${dayObj.day}-t${idx}`;
+                    tasksHtml += `
+                        <label class="task-item" for="${globalTaskIdx}">
+                            <div class="task-checkbox-wrapper">
+                                <input type="checkbox" id="${globalTaskIdx}" data-day="${dayObj.day}" onchange="handleTaskStateChange(this)">
+                                <div class="checkbox-custom"></div>
+                            </div>
+                            <span class="task-label-text">${task}</span>
+                        </label>
+                    `;
+                });
+
+                let resourcesHtml = dayObj.resources.map(res => `
+                    <div class="resource-btn">
+                        <span>📖 ${res}</span>
+                        <span style="font-size:0.7rem; color:var(--text-muted);">Access Asset</span>
+                    </div>
+                `).join('');
+
+                let outcomesHtml = dayObj.outcomes.map(out => `
+                    <div class="outcome-item">${out}</div>
+                `).join('');
+
+                dayCard.innerHTML = `
+                    <div class="day-summary-row" onclick="toggleCardExpansion(${dayObj.day})">
+                        <div class="day-badge">
+                            <label>Timeline</label>
+                            <span>${dayObj.day}</span>
+                        </div>
+                        <div class="day-title-area">
+                            <h3>${dayObj.title}</h3>
+                            <span class="theme-meta-pill">Focus Track: ${dayObj.theme}</span>
+                        </div>
+                        <div class="day-metrics-pills">
+                            <div class="meta-pill">⏱️ ${dayObj.time}</div>
+                            <div class="meta-pill" id="day-ratio-${dayObj.day}">🎯 0/${dayObj.tasks.length}</div>
+                        </div>
+                        <div class="arrow-toggle">▼</div>
+                    </div>
+                    <div class="day-details-pane">
+                        <div class="pane-contents">
+                            <div class="tasks-column">
+                                <h4 class="task-list-title">Core Milestone Deliverables Checklist</h4>
+                                <div class="task-group">${tasksHtml}</div>
+                            </div>
+                            <div class="details-sidebar">
+                                <div class="sidebar-block">
+                                    <h4>Strategic Guidance Vector</h4>
+                                    <blockquote class="insight-quote">"${dayObj.insight}"</blockquote>
+                                </div>
+                                <div class="sidebar-block">
+                                    <h4>Referenced Assets Mapping</h4>
+                                    <div class="resource-link-stack">${resourcesHtml}</div>
+                                </div>
+                                <div class="sidebar-block">
+                                    <h4>Guaranteed Target Outcomes</h4>
+                                    <div>${outcomesHtml}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                if(dayObj.week === 1) w1Anchor.appendChild(dayCard);
+                else if(dayObj.week === 2) w2Anchor.appendChild(dayCard);
+                else if(dayObj.week === 3) w3Anchor.appendChild(dayCard);
+                else if(dayObj.week === 4) w4Anchor.appendChild(dayCard);
+            });
+        }
+
+        // Knowledge Base Book Dom Generator Engine
+        function generateLibraryVaultDom() {
+            const vaultBooksAnchor = document.getElementById("vaultBooksAnchor");
+            vaultBooksAnchor.innerHTML = '';
+
+            libraryData.forEach(book => {
+                const card = document.createElement("div");
+                card.className = "vault-book-card";
+                
+                let linkButtonHtml = `<div class="resource-btn" style="opacity: 0.5; cursor: not-allowed;">
+                    <span>No Link Available</span>
+                </div>`;
+                
+                if (book.link) {
+                    linkButtonHtml = `
+                        <a href="${book.link}" target="_blank" class="resource-btn" style="background: var(--accent-primary); color: #fff; border-color: var(--accent-secondary);">
+                            <span>Read Online</span>
+                            <span>➔</span>
+                        </a>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div>
+                        <span class="book-tier-tag tier-${book.tier}">${book.tier}</span>
+                        <h4>${book.title}</h4>
+                        <div class="book-author">By ${book.author}</div>
+                        <p class="book-description">${book.desc}</p>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        ${linkButtonHtml}
+                    </div>
+                `;
+                vaultBooksAnchor.appendChild(card);
+            });
+        }
+
+        // Workspace Expansion Automation Engine
+        function toggleCardExpansion(dayNum) {
+            const card = document.getElementById(`day-card-${dayNum}`);
+            if(!card) return;
+            
+            const isExpanded = card.classList.contains("expanded");
+            
+            // Close all tabs globally first to emulate strict clean presentation rules
+            document.querySelectorAll(".day-card").forEach(c => c.classList.remove("expanded"));
+            
+            if(!isExpanded) {
+                card.classList.add("expanded");
+                setTimeout(() => {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 150);
+            }
+        }
+
+        // Workspace Filter Navigation Logic Engine
+        function switchWeekTab(weekNum) {
+            document.querySelectorAll(".hub-tab").forEach((tab, index) => {
+                if(index === (weekNum - 1)) tab.classList.add("active");
+                else tab.classList.remove("active");
+            });
+
+            document.querySelectorAll(".week-wrapper").forEach(pane => {
+                pane.classList.remove("active-week");
+            });
+
+            document.getElementById(`week${weekNum}-pane`).classList.add("active-week");
+            
+            window.scrollTo({
+                top: document.getElementById("roadmap").offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
+
+        // Live Dynamic State Change Mechanics
+        function handleTaskStateChange(chkInput) {
+            const id = chkInput.id;
+            const isChecked = chkInput.checked;
+            const dayNum = parseInt(chkInput.getAttribute("data-day"));
+
+            saveCheckboxState(id, isChecked);
+            updateIndividualDayPillRatio(dayNum);
+            recalculateProgress();
+            verifyCheckpointsActivity(dayNum);
+        }
+
+        function saveCheckboxState(id, isChecked) {
+            let stateMap = JSON.parse(localStorage.getItem("mastery_tasks_map")) || {};
+            stateMap[id] = isChecked;
+            localStorage.setItem("mastery_tasks_map", JSON.stringify(stateMap));
+        }
+
+        function loadSavedState() {
+            let stateMap = JSON.parse(localStorage.getItem("mastery_tasks_map")) || {};
+            Object.keys(stateMap).forEach(key => {
+                const chk = document.getElementById(key);
+                if(chk) chk.checked = stateMap[key];
+            });
+
+            // Update all structural ratio visual tags matching individual day inputs
+            for(let d = 1; d <= 30; d++) {
+                updateIndividualDayPillRatio(d);
+                verifyCheckpointsActivity(d);
+            }
+
+            // Restore Business Canvas input structures
+            for(let key of ['kp','ka','kr','vp','cr','ch','cs','cst','rev']) {
+                const cachedNodeVal = localStorage.getItem(`mastery_canvas_${key}`);
+                if(cachedNodeVal) {
+                    const el = document.getElementById(`canvas_${key}`);
+                    if(el) el.value = cachedNodeVal;
+                }
+            }
+        }
+
+        function updateIndividualDayPillRatio(dayNum) {
+            const totalTasks = document.querySelectorAll(`input[data-day="${dayNum}"]`);
+            const checkedTasks = document.querySelectorAll(`input[data-day="${dayNum}"]:checked`);
+            const targetPill = document.getElementById(`day-ratio-${dayNum}`);
+            
+            if(targetPill && totalTasks.length > 0) {
+                targetPill.innerText = `🎯 ${checkedTasks.length}/${totalTasks.length}`;
+                if(checkedTasks.length === totalTasks.length) {
+                    targetPill.style.borderColor = "var(--accent-success)";
+                    targetPill.style.color = "var(--accent-success)";
+                } else {
+                    targetPill.style.borderColor = "var(--border-color)";
+                    targetPill.style.color = "var(--text-secondary)";
+                }
+            }
+        }
+
+        function verifyCheckpointsActivity(dayNum) {
+            // Evaluates mathematical sets to trigger custom visual parameters matching checkpoint targets
+            const getCheckStatus = (selectorsArray) => {
+                let verified = true;
+                selectorsArray.forEach(id => {
+                    const el = document.getElementById(id);
+                    if(!el || !el.checked) verified = false;
+                });
+                return verified;
+            };
+
+            // Mapping corresponding checklist element definitions to update state indicators
+            if(dayNum <= 7) {
+                // Week 1 Checkpoints
+                const chk1 = getCheckStatus(['d1-t1','d1-t3']); // Money beliefs audit triggers
+                const chk2 = getCheckStatus(['d1-t5','d3-t2']); // Infrastructure targets
+                const chk3 = getCheckStatus(['d1-t6','d5-t2']); // Strategic network ideation
+                
+                toggleCheckpointUiClass("chk-w1-1", chk1);
+                toggleCheckpointUiClass("chk-w1-2", chk2);
+                toggleCheckpointUiClass("chk-w1-3", chk3);
+            } else if (dayNum > 7 && dayNum <= 14) {
+                // Week 2 Checkpoints
+                const chk1 = getCheckStatus(['d8-t2','d9-t1','d13-t1']);
+                const chk2 = getCheckStatus(['d8-t3','d14-t1']);
+                const chk3 = getCheckStatus(['d10-t3','d11-t3']);
+                
+                toggleCheckpointUiClass("chk-w2-1", chk1);
+                toggleCheckpointUiClass("chk-w2-2", chk2);
+                toggleCheckpointUiClass("chk-w2-3", chk3);
+            }
+        }
+
+        function toggleCheckpointUiClass(pillId, isVerified) {
+            const pill = document.getElementById(pillId);
+            if(!pill) return;
+            if(isVerified) {
+                pill.classList.add("verified");
+                pill.innerText = "✓ " + pill.innerText.replace("✓ ", "");
+            } else {
+                pill.classList.remove("verified");
+                pill.innerText = pill.innerText.replace("✓ ", "");
+            }
+        }
+
+        function recalculateProgress() {
+            const total = document.querySelectorAll('input[type="checkbox"]').length;
+            const checked = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            
+            let percentage = 0;
+            if(total > 0) percentage = Math.round((checked / total) * 100);
+
+            // Update DOM layout states smoothly
+            document.getElementById("globalProgressBarFill").style.width = `${percentage}%`;
+            document.getElementById("globalProgressText").innerText = `${percentage}% Complete`;
+            document.getElementById("radialProgressText").innerText = `${percentage}%`;
+            
+            // Adjust stroke offsets values mathematically matching 502 total circumference
+            const circleStrokeDashOffset = 502 - (502 * (percentage / 100));
+            document.getElementById("radialCircleProgress").style.strokeDashoffset = circleStrokeDashOffset;
+        }
+
+        // Persistent Workspace Business Model Engine
+        function persistCanvas() {
+            for(let key of ['kp','ka','kr','vp','cr','ch','cs','cst','rev']) {
+                const nodeVal = document.getElementById(`canvas_${key}`).value;
+                localStorage.setItem(`mastery_canvas_${key}`, nodeVal);
+            }
+        }
+
+        // Practical Functional Formula Execution Calculations Engines
+        function calculateMarketMetrics(event) {
+            event.preventDefault();
+            
+            const tamPop = parseFloat(document.getElementById("inputTamPop").value) || 0;
+            const samPct = parseFloat(document.getElementById("inputSamPct").value) || 0;
+            const somPct = parseFloat(document.getElementById("inputSomPct").value) || 0;
+            const acvVal = parseFloat(document.getElementById("inputAcv").value) || 0;
+
+            const tamVal = tamPop * acvVal;
+            const computedSam = tamVal * (samPct / 100);
+            const computedSom = computedSam * (somPct / 100);
+
+            const formatVal = (v) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(v);
+
+            document.getElementById("outTam").innerText = formatVal(tamVal);
+            document.getElementById("outSam").innerText = formatVal(computedSam);
+            document.getElementById("outSom").innerText = formatVal(computedSom);
+        }
+
+        function calculatePricingMetrics(event) {
+            event.preventDefault();
+            const painValue = parseFloat(document.getElementById("inputPainValue").value) || 0;
+            const monthlyOpex = parseFloat(document.getElementById("inputOpex").value) || 0;
+
+            // Apply standard mathematical guidelines pricing strategy rules formula:
+            // Price = Pain value offset by 10% to 30% ratio metrics range.
+            const lowTierPrice = painValue * 0.10;
+            const highTierPrice = painValue * 0.30;
+            
+            let unitsToClearBreakeven = 0;
+            if(lowTierPrice > 0) {
+                unitsToClearBreakeven = Math.ceil(monthlyOpex / lowTierPrice);
+            }
+
+            const formatVal = (v) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 }).format(v);
+
+            document.getElementById("tierLow").innerText = `${formatVal(lowTierPrice)} / mo`;
+            document.getElementById("tierHigh").innerText = `${formatVal(highTierPrice)} / mo`;
+            document.getElementById("breakevenUnits").innerText = `${unitsToClearBreakeven} Account Units`;
+        }
+    </script>
+</body>
+</html>
