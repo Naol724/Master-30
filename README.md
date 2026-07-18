@@ -46,16 +46,18 @@ The original `Master30.html` is kept as a reference of the pre-migration single-
 | **Language / Runtime** | `Node` |
 | **Branch** | `main` (or your default branch) |
 | **Root Directory** | leave empty (repo root) |
-| **Build Command** | `npm install && npm run build` |
+| **Build Command** | `npm install --include=dev && npm run build` |
 | **Start Command** | `npm start` |
 | **Instance Type** | Free (or paid) |
 
-4. Environment variables (optional but recommended):
+4. Environment variables:
 
 | Key | Value |
 | --- | --- |
-| `NODE_ENV` | `production` |
 | `NODE_VERSION` | `20.18.0` |
+| `NPM_CONFIG_PRODUCTION` | `false` |
+
+Do **not** set `NODE_ENV=production` as a service env var before build — it skips install of build tools (Tailwind/PostCSS) and breaks `next build`.
 
 Render sets `PORT` automatically — do not hardcode it.
 
