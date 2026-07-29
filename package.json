@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start --hostname 0.0.0.0",
+    "start": "npx --yes serve@14 out -l tcp://0.0.0.0:$PORT",
     "lint": "eslint"
   },
   "dependencies": {
