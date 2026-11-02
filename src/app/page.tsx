@@ -1,5 +1,5 @@
-import { MasteryApp } from "@/components/MasteryApp";
+import { LandingPage } from "@/components/landing/LandingPage";
 
 export default function Home() {
-  return <MasteryApp />;
+  return <LandingPage />;
 }

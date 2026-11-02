@@ -1,21 +1,51 @@
-# Master30 — 30-Day Business Mastery Roadmap
+# MASTERY.30
 
-Next.js + TypeScript + Tailwind CSS port of the Master30 learning workspace.
+30-Day Business Mastery Roadmap — Next.js, TypeScript, and Tailwind CSS.
 
-## Deploy on Render (Static Site)
-
-Use **Static Site** (not Web Service) so the app opens instantly with no cold starts.
-
-| Field | Value |
-| --- | --- |
-| **Build Command** | `npm ci --include=dev && npm run build` |
-| **Publish Directory** | `out` |
-
-Env vars: `NODE_VERSION=20.18.0`, `NPM_CONFIG_PRODUCTION=false`
-
-Local:
+## Local development
 
 ```bash
 npm install
 npm run dev
 ```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+| Route | Page |
+| --- | --- |
+| `/` | Landing page |
+| `/workspace/` | Interactive roadmap workspace |
+
+## Scripts
+
+- `npm run dev` — development server
+- `npm run build` — static export into `out/`
+- `npm run lint` — lint
+
+## Deploy / redeploy on Render (Static Site)
+
+This app is a **static export**. Use a **Static Site** (not a Web Service) so it stays fast with no cold starts.
+
+### Settings
+
+| Field | Value |
+| --- | --- |
+| **Branch** | `main` |
+| **Root Directory** | *(leave empty)* |
+| **Build Command** | `npm ci --include=dev && npm run build` |
+| **Publish Directory** | `out` |
+
+### Environment variables
+
+| Key | Value |
+| --- | --- |
+| `NODE_VERSION` | `20.18.0` |
+| `NPM_CONFIG_PRODUCTION` | `false` |
+
+### Redeploy after a GitHub push
+
+1. Push `main` to GitHub.
+2. If auto-deploy is on, Render builds automatically.
+3. Otherwise: Render Dashboard → your Static Site → **Manual Deploy** → **Deploy latest commit**.
+
+Confirm **Publish Directory** is still `out` after every settings change.

@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 type NavbarProps = {
   progress: number;
   mobileMenuOpen: boolean;
@@ -18,14 +20,17 @@ export function Navbar({
   return (
     <nav className="navbar">
       <div className="container nav-container">
-        <a href="#" className="logo">
+        <Link href="/" className="logo">
           ⚡ MASTERY.30
-        </a>
+        </Link>
 
         <div
           className={`nav-links${mobileMenuOpen ? " mobile-open" : ""}`}
           id="navLinksMenu"
         >
+          <Link href="/" className="nav-link" onClick={onCloseMenu}>
+            Home
+          </Link>
           <a href="#roadmap" className="nav-link active" onClick={onCloseMenu}>
             Roadmap
           </a>

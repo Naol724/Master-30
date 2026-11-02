@@ -1,14 +1,31 @@
+import Link from "next/link";
+
 export function Footer() {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer workspace-footer">
+      <div className="container workspace-footer-grid">
+        <div>
+          <Link
+            href="/"
+            style={{ fontFamily: "var(--font-mono)", fontSize: "1.25rem" }}
+          >
+            MASTERY.30
+          </Link>
+          <p>
+            Sustainable Wealth is Structured Through Action. Formulate
+            Frameworks. Build Assets.
+          </p>
+        </div>
+
+        <div className="workspace-footer-links">
+          <Link href="/">Home</Link>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#tools">Sandboxes</a>
+          <a href="#vault">Vault</a>
+        </div>
+      </div>
+
       <div className="container">
-        <h3 style={{ fontFamily: "var(--font-mono)", fontSize: "1.25rem" }}>
-          MASTERY.30
-        </h3>
-        <p>
-          Sustainable Wealth is Structured Through Action. Formulate Frameworks.
-          Build Assets.
-        </p>
         <p
           style={{
             fontSize: "0.75rem",
@@ -16,8 +33,8 @@ export function Footer() {
             marginTop: "2rem",
           }}
         >
-          &copy; 2026 Mastery Execution Engine Workspace Terminal. Built
-          Standalone.
+          &copy; {new Date().getFullYear()} Mastery Execution Engine Workspace.
+          Built for founders who ship.
         </p>
       </div>
     </footer>

@@ -17,9 +17,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "30-Day Business Mastery Roadmap",
+  title: "MASTERY.30 — 30-Day Business Mastery Roadmap",
   description:
-    "An intensive, actionable digital workspace to master entrepreneurship and build sustainable wealth in 30 days.",
+    "Thirty days to founder-grade execution. An intensive workspace for mindset, customers, monetization, and launch.",
 };
 
 const themeInitScript = `
