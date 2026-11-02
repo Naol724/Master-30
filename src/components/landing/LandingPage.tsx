@@ -64,8 +64,8 @@ export function LandingPage() {
           <p className="lp-brand-hero">MASTERY.30</p>
           <h1>Thirty days to founder-grade execution.</h1>
           <p className="lp-hero-lead">
-            An intensive workspace that moves you from employee mindset to a
-            verified high-growth founder track—one structured sprint at a time.
+            Move from employee mindset to a high-growth founder track in four
+            structured sprint weeks.
           </p>
           <div className="lp-hero-actions">
             <Link href="/workspace/" className="lp-btn lp-btn-primary">
