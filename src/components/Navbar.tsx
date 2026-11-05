@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import type { ThemeMode } from "@/lib/storage";
 
 type NavbarProps = {
   progress: number;
+  theme: ThemeMode;
   mobileMenuOpen: boolean;
   onToggleTheme: () => void;
   onToggleMenu: () => void;
@@ -12,6 +15,7 @@ type NavbarProps = {
 
 export function Navbar({
   progress,
+  theme,
   mobileMenuOpen,
   onToggleTheme,
   onToggleMenu,
@@ -55,15 +59,12 @@ export function Navbar({
               {progress}% Complete
             </span>
           </div>
-          <button
-            className="theme-toggle"
-            id="globalThemeToggleBtn"
-            aria-label="Toggle Theme"
-            type="button"
-            onClick={onToggleTheme}
-          >
-            🌓
-          </button>
+          <ThemeToggle
+            theme={theme}
+            onToggle={onToggleTheme}
+            showLabel
+            className="theme-toggle-bar"
+          />
           <button
             className={`mobile-menu-toggle${mobileMenuOpen ? " open" : ""}`}
             id="menuToggleBtn"

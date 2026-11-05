@@ -113,6 +113,7 @@ export function MasteryApp() {
     <>
       <Navbar
         progress={progress}
+        theme={theme}
         mobileMenuOpen={mobileMenuOpen}
         onToggleTheme={handleToggleTheme}
         onToggleMenu={() => setMobileMenuOpen((open) => !open)}

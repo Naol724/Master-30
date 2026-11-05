@@ -221,19 +221,51 @@
             }
         }
 
-        .theme-toggle {
-            background: none;
-            border: none;
+        /* Shared theme toggle (landing + workspace) */
+        .theme-toggle-btn {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 999px;
+            min-height: 2.25rem;
+            padding: 0.4rem 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
             cursor: pointer;
-            color: var(--text-secondary);
-            font-size: 1.25rem;
-            transition: var(--transition);
-            padding: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            line-height: 1;
+            color: var(--text-primary);
+            transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+            flex-shrink: 0;
         }
 
-        .theme-toggle:hover {
-            color: var(--text-primary);
-            transform: scale(1.1);
+        .theme-toggle-btn:hover {
+            border-color: var(--accent-secondary);
+            background: var(--card-glow);
+        }
+
+        .theme-toggle-label {
+            display: none;
+        }
+
+        .theme-toggle-label-full {
+            display: none;
+        }
+
+        .theme-toggle-bar {
+            display: inline-flex;
+        }
+
+        .theme-toggle-in-menu {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .theme-toggle-bar .theme-toggle-label {
+                display: inline;
+            }
         }
 
         /* Hamburger Toggle Button */
@@ -1738,42 +1770,6 @@
             flex-shrink: 0;
         }
 
-        .lp-theme-toggle {
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border-color);
-            border-radius: 999px;
-            min-height: 2.25rem;
-            padding: 0.4rem 0.75rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.4rem;
-            cursor: pointer;
-            font-size: 0.8rem;
-            font-weight: 600;
-            line-height: 1;
-            color: var(--text-primary);
-            transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
-            flex-shrink: 0;
-        }
-
-        .lp-theme-toggle:hover {
-            border-color: var(--accent-secondary);
-            background: var(--card-glow);
-        }
-
-        .lp-theme-toggle-desktop {
-            display: none;
-        }
-
-        .lp-theme-toggle-mobile {
-            width: max-content;
-        }
-
-        .lp-theme-label {
-            display: none;
-        }
-
         .lp-menu-btn {
             background: none;
             border: none;
@@ -1825,17 +1821,8 @@
                 margin-right: 0.75rem;
             }
 
-            .lp-nav-links .lp-nav-cta,
-            .lp-nav-links .lp-theme-toggle-mobile {
+            .lp-nav-links .lp-nav-cta {
                 display: none;
-            }
-
-            .lp-theme-toggle-desktop {
-                display: inline-flex;
-            }
-
-            .lp-theme-label {
-                display: inline;
             }
 
             .lp-nav-cta-desktop {
