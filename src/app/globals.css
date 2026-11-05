@@ -1718,6 +1718,7 @@
             font-size: 0.82rem;
             width: max-content;
             transition: background 0.25s ease, transform 0.25s ease;
+            flex-shrink: 0;
         }
 
         .lp-nav-cta:hover {
@@ -1725,33 +1726,52 @@
             transform: translateY(-1px);
         }
 
+        .lp-nav-cta-desktop {
+            display: none;
+        }
+
         .lp-nav-actions {
             display: flex;
             align-items: center;
             gap: 0.55rem;
             z-index: 1001;
+            flex-shrink: 0;
         }
 
         .lp-theme-toggle {
             background: var(--bg-tertiary);
             border: 1px solid var(--border-color);
             border-radius: 999px;
-            width: 2.25rem;
-            height: 2.25rem;
+            min-height: 2.25rem;
+            padding: 0.4rem 0.75rem;
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            gap: 0.4rem;
             cursor: pointer;
-            font-size: 0.95rem;
+            font-size: 0.8rem;
+            font-weight: 600;
             line-height: 1;
-            color: var(--text-secondary);
-            transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+            color: var(--text-primary);
+            transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+            flex-shrink: 0;
         }
 
         .lp-theme-toggle:hover {
-            color: var(--text-primary);
             border-color: var(--accent-secondary);
-            transform: scale(1.05);
+            background: var(--card-glow);
+        }
+
+        .lp-theme-toggle-desktop {
+            display: none;
+        }
+
+        .lp-theme-toggle-mobile {
+            width: max-content;
+        }
+
+        .lp-theme-label {
+            display: none;
         }
 
         .lp-menu-btn {
@@ -1798,8 +1818,28 @@
                 background: transparent;
                 border: none;
                 padding: 0;
-                gap: 1.75rem;
+                gap: 1.15rem;
                 transform: none;
+                flex: 1;
+                justify-content: flex-end;
+                margin-right: 0.75rem;
+            }
+
+            .lp-nav-links .lp-nav-cta,
+            .lp-nav-links .lp-theme-toggle-mobile {
+                display: none;
+            }
+
+            .lp-theme-toggle-desktop {
+                display: inline-flex;
+            }
+
+            .lp-theme-label {
+                display: inline;
+            }
+
+            .lp-nav-cta-desktop {
+                display: inline-flex;
             }
 
             .lp-nav-link {
