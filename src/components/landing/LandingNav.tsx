@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { startTransition, useEffect, useState } from "react";
+import { readTheme, writeTheme, type ThemeMode } from "@/lib/storage";
 
 const LINKS = [
   { href: "#path", label: "The Path" },
@@ -13,6 +14,7 @@ const LINKS = [
 export function LandingNav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState<ThemeMode>("dark");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -21,8 +23,21 @@ export function LandingNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const saved = readTheme();
+    document.documentElement.setAttribute("data-theme", saved);
+    startTransition(() => setTheme(saved));
+  }, []);
+
   function close() {
     setOpen(false);
+  }
+
+  function toggleTheme() {
+    const next: ThemeMode = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    document.documentElement.setAttribute("data-theme", next);
+    writeTheme(next);
   }
 
   return (
@@ -65,17 +80,30 @@ export function LandingNav() {
           </Link>
         </nav>
 
-        <button
-          type="button"
-          className={`lp-menu-btn${open ? " is-open" : ""}`}
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+        <div className="lp-nav-actions">
+          <button
+            type="button"
+            className="lp-theme-toggle"
+            aria-label={
+              theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+            }
+            title={theme === "dark" ? "Light mode" : "Dark mode"}
+            onClick={toggleTheme}
+          >
+            {theme === "dark" ? "☀️" : "🌙"}
+          </button>
+          <button
+            type="button"
+            className={`lp-menu-btn${open ? " is-open" : ""}`}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </div>
     </header>
   );
